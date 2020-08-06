@@ -19,7 +19,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "Hoxton.SR6")
+	set('springCloudVersion', "Greenwich.SR6")
 }
 
 dependencies {

@@ -7,7 +7,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="1" author="Karthik">
+    <changeSet id="1" author="Amey">
         <sql>
             CREATE TABLE `notification` (
             `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
@@ -22,7 +22,7 @@
             DROP TABLE notification;
         </rollback>
     </changeSet>
-    <changeSet id="1" author="Karthik">
+    <changeSet id="2" author="Amey">
         <sql>
             CREATE TABLE user (
             id BIGINT NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@
     </changeSet>
 
 
-    <changeSet id="2" author="Karthik">
+    <changeSet id="3" author="Amey">
         <sql>
             CREATE TABLE course (
             id BIGINT NOT NULL AUTO_INCREMENT,
@@ -56,7 +56,7 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="3" author="Karthik">
+    <changeSet id="4" author="Amey">
         <sql>
             CREATE TABLE course_trainee (
             id BIGINT NOT NULL AUTO_INCREMENT,
@@ -73,7 +73,7 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="4" author="Karthik">
+    <changeSet id="5" author="Amey">
         <sql>
             INSERT INTO user (username, name, password, role) values ("user1", "user Tom", "test", "MENTOR");
             INSERT INTO user (username, name, password, role) values ("user2", "user Adam", "test", "MENTOR");
@@ -84,7 +84,7 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="5" author="Karthik">
+    <changeSet id="6" author="Amey">
         <sql>
             INSERT INTO course (name, mentor_id) values ("JAVA-101", (select id from user where username = "user1"));
             INSERT INTO course (name, mentor_id) values ("JAVA-102", (select id from user where username = "user2"));
