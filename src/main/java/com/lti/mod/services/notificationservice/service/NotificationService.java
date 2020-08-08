@@ -13,11 +13,17 @@ public class NotificationService {
     private NotificationRepository notificationRepository;
 
     public String createNotification (NotificationDTO notificationDto){
-        notificationRepository.save(new NotificationDO());
+        NotificationDO notificationDO = new NotificationDO();
+        notificationDO.setCreatedOn(new java.sql.Date(notificationDto.getCreatedOn().getTime()));
+        notificationDO.setDescription(notificationDto.getDescription());
+        notificationDO.setUserId(Integer.parseInt(String.valueOf(notificationDto.getUserId())));
+        notificationDO.setModifiedOn(new java.sql.Date(notificationDto.getModifiedOn().getTime()));
+        notificationDO.setStatus(notificationDto.getStatus());
+        notificationRepository.save(notificationDO);
         return "created";
     }
 
-    public NotificationDO getNotificationByUserId (Long userId){
+    public NotificationDO getNotificationByUserId (Integer userId){
         NotificationDO notificationDO = notificationRepository.getNotificationByUserId(userId);
         return notificationDO;
     }

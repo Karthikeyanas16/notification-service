@@ -21,9 +21,9 @@ public class NotificationController {
     }
 
     @RequestMapping(value = "/notification/get", method = RequestMethod.GET)
-    public ResponseEntity<NotificationDO> getNotificationByUserId(@RequestParam Long userId) throws Exception {
+    public ResponseEntity<NotificationDO> getNotificationByUserId(@RequestParam String userId) throws Exception {
         System.out.println(" ########## NotificationController getNotificationByUserId  ##########");
-        NotificationDO notificationDO = notificationService.getNotificationByUserId(userId);
+        NotificationDO notificationDO = notificationService.getNotificationByUserId(Integer.parseInt(userId));
         /*NotificationDTO obj = new NotificationDTO();
         obj.setStatus("active");*/
         return ResponseEntity.ok(notificationDO);

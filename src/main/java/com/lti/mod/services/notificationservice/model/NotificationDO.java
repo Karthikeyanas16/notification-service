@@ -2,7 +2,7 @@ package com.lti.mod.services.notificationservice.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "notification")
@@ -10,10 +10,10 @@ public class NotificationDO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     @Column(name = "status")
     private String status;
@@ -27,15 +27,11 @@ public class NotificationDO {
     @Column(name = "modified_on")
     private Date modifiedOn;
 
-    public long getId() {
-        return id;
-    }
-
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
