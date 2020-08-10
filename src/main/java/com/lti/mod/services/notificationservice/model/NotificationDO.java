@@ -12,19 +12,19 @@ public class NotificationDO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "user_id")
+    @Column
     private Integer userId;
 
-    @Column(name = "status")
+    @Column
     private String status;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @Column(name = "created_on")
+    @Column
     private Date createdOn;
 
-    @Column(name = "modified_on")
+    @Column
     private Date modifiedOn;
 
     public Integer getUserId() {

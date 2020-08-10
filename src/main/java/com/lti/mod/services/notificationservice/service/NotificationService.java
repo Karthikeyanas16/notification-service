@@ -3,6 +3,9 @@ package com.lti.mod.services.notificationservice.service;
 import com.lti.mod.services.notificationservice.dto.NotificationDTO;
 import com.lti.mod.services.notificationservice.model.NotificationDO;
 import com.lti.mod.services.notificationservice.repository.NotificationRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +26,8 @@ public class NotificationService {
         return "created";
     }
 
-    public NotificationDO getNotificationByUserId (Integer userId){
-        NotificationDO notificationDO = notificationRepository.getNotificationByUserId(userId);
+    public List<NotificationDO> getNotificationByUserId (Integer userId){
+    	List<NotificationDO> notificationDO = notificationRepository.getNotificationByUserId(userId);
         return notificationDO;
     }
 }

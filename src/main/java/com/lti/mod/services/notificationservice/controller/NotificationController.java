@@ -3,6 +3,9 @@ package com.lti.mod.services.notificationservice.controller;
 import com.lti.mod.services.notificationservice.dto.NotificationDTO;
 import com.lti.mod.services.notificationservice.model.NotificationDO;
 import com.lti.mod.services.notificationservice.service.NotificationService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +24,9 @@ public class NotificationController {
     }
 
     @RequestMapping(value = "/notification/get", method = RequestMethod.GET)
-    public ResponseEntity<NotificationDO> getNotificationByUserId(@RequestParam String userId) throws Exception {
+    public ResponseEntity<List<NotificationDO>> getNotificationByUserId(@RequestParam String userId) throws Exception {
         System.out.println(" ########## NotificationController getNotificationByUserId  ##########");
-        NotificationDO notificationDO = notificationService.getNotificationByUserId(Integer.parseInt(userId));
-        /*NotificationDTO obj = new NotificationDTO();
-        obj.setStatus("active");*/
+        List<NotificationDO> notificationDO = notificationService.getNotificationByUserId(Integer.parseInt(userId));
         return ResponseEntity.ok(notificationDO);
     }
 }
