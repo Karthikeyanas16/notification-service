@@ -13,7 +13,7 @@ public class NotificationDO {
     private Integer id;
 
     @Column
-    private Integer userId;
+    private Long userId;
 
     @Column
     private String status;
@@ -27,11 +27,11 @@ public class NotificationDO {
     @Column
     private Date modifiedOn;
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

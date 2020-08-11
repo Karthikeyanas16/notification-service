@@ -23,10 +23,10 @@ public class NotificationController {
         return ResponseEntity.ok(notificationService.createNotification(notificationDto));
     }
 
-    @RequestMapping(value = "/notification/get", method = RequestMethod.GET)
-    public ResponseEntity<List<NotificationDO>> getNotificationByUserId(@RequestParam String userId) throws Exception {
+    @RequestMapping(value = "/notification/get/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<NotificationDO>> getNotificationByUserId(@PathVariable Long id) throws Exception {
         System.out.println(" ########## NotificationController getNotificationByUserId  ##########");
-        List<NotificationDO> notificationDO = notificationService.getNotificationByUserId(Integer.parseInt(userId));
+        List<NotificationDO> notificationDO = notificationService.getNotificationByUserId(id);
         return ResponseEntity.ok(notificationDO);
     }
 }

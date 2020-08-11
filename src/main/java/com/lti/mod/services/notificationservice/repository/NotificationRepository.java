@@ -10,5 +10,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface NotificationRepository extends CrudRepository<NotificationDO,Integer> {
 
     @Query("SELECT u FROM NotificationDO u WHERE u.userId = ?1")
-    public List<NotificationDO> getNotificationByUserId(Integer userId);
+    public List<NotificationDO> getNotificationByUserId(Long userId);
 }

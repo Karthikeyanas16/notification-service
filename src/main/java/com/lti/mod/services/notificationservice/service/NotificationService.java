@@ -19,14 +19,14 @@ public class NotificationService {
         NotificationDO notificationDO = new NotificationDO();
         notificationDO.setCreatedOn(new java.sql.Date(notificationDto.getCreatedOn().getTime()));
         notificationDO.setDescription(notificationDto.getDescription());
-        notificationDO.setUserId(Integer.parseInt(String.valueOf(notificationDto.getUserId())));
+        notificationDO.setUserId(notificationDto.getUserId());
         notificationDO.setModifiedOn(new java.sql.Date(notificationDto.getModifiedOn().getTime()));
         notificationDO.setStatus(notificationDto.getStatus());
         notificationRepository.save(notificationDO);
         return "created";
     }
 
-    public List<NotificationDO> getNotificationByUserId (Integer userId){
+    public List<NotificationDO> getNotificationByUserId (Long userId){
     	List<NotificationDO> notificationDO = notificationRepository.getNotificationByUserId(userId);
         return notificationDO;
     }
