@@ -1,9 +1,12 @@
 package com.lti.mod.services.notificationservice.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+@Data
 @Entity
 @Table(name = "notification")
 public class NotificationDO {
@@ -13,7 +16,7 @@ public class NotificationDO {
     private Integer id;
 
     @Column
-    private Long userId;
+    private Long user_id;
 
     @Column
     private String status;
@@ -28,11 +31,11 @@ public class NotificationDO {
     private Date modifiedOn;
 
     public Long getUserId() {
-        return userId;
+        return user_id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserId(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getStatus() {

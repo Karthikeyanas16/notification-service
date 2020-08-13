@@ -5,7 +5,7 @@ import java.util.Date;
 public class NotificationDTO  {
 
     private long id;
-    private long userId;
+    private long user_id;
     private String status;
     private String description;
     private Date createdOn;
@@ -20,11 +20,11 @@ public class NotificationDTO  {
     }
 
     public long getUserId() {
-        return userId;
+        return user_id;
     }
 
     public void setUserId(long userId) {
-        this.userId = userId;
+        this.user_id = user_id;
     }
 
     public String getStatus() {

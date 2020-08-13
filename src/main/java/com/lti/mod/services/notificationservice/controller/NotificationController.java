@@ -6,7 +6,9 @@ import com.lti.mod.services.notificationservice.service.NotificationService;
 
 import java.util.List;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +19,12 @@ public class NotificationController {
     @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping(value = "/notification/save", method = RequestMethod.POST)
-    public ResponseEntity<?> createNotication(@RequestBody NotificationDTO notificationDto) throws Exception {
+    @PostMapping("/notification/save")
+    public ResponseEntity<?> createNotication(@RequestBody NotificationDO notificationDto) throws NotFoundException {
         System.out.println(" ########## NotificationController createNotication  ##########");
-        return ResponseEntity.ok(notificationService.createNotification(notificationDto));
+        System.out.println(notificationDto.getUserId());
+        System.out.println(notificationDto.getDescription());
+        return new ResponseEntity<>(notificationService.createNotification(notificationDto), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/notification/get/{id}", method = RequestMethod.GET)

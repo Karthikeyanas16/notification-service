@@ -15,15 +15,8 @@ public class NotificationService {
     @Autowired
     private NotificationRepository notificationRepository;
 
-    public String createNotification (NotificationDTO notificationDto){
-        NotificationDO notificationDO = new NotificationDO();
-        notificationDO.setCreatedOn(new java.sql.Date(notificationDto.getCreatedOn().getTime()));
-        notificationDO.setDescription(notificationDto.getDescription());
-        notificationDO.setUserId(notificationDto.getUserId());
-        notificationDO.setModifiedOn(new java.sql.Date(notificationDto.getModifiedOn().getTime()));
-        notificationDO.setStatus(notificationDto.getStatus());
-        notificationRepository.save(notificationDO);
-        return "created";
+    public NotificationDO createNotification(NotificationDO notificationDto) {
+        return notificationRepository.save(notificationDto);
     }
 
     public List<NotificationDO> getNotificationByUserId (Long userId){
