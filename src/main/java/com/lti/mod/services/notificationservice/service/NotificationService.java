@@ -1,6 +1,5 @@
 package com.lti.mod.services.notificationservice.service;
 
-import com.lti.mod.services.notificationservice.dto.NotificationDTO;
 import com.lti.mod.services.notificationservice.model.NotificationDO;
 import com.lti.mod.services.notificationservice.repository.NotificationRepository;
 
@@ -23,4 +22,9 @@ public class NotificationService {
     	List<NotificationDO> notificationDO = notificationRepository.getNotificationByUserId(userId);
         return notificationDO;
     }
+
+    public void closeNotification(Long userId) {
+       notificationRepository.updateNotify(userId);
+    }
+
 }
